@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package grpc;
+
+service NoteService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc CreateNote(CreateNoteRequest) returns (CreateNoteResponse);
+  rpc UpdateNote(UpdateNoteRequest) returns (UpdateNoteResponse);
+  rpc GetNote(GetNoteRequest) returns (GetNoteResponse);
+}
+
+message RegisterRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message RegisterResponse {
+  string status = 1;
+}
+
+message CreateNoteRequest {
+  string note_id = 1;
+  string title = 2;
+  string body = 3;
+}
+
+
+message CreateNoteResponse {
+  string status = 1;
+}
+
+message UpdateNoteRequest {
+  string note_id = 1;
+  string title = 2;
+  string body = 3;
+}
+
+message UpdateNoteResponse {
+  string status = 1;
+}
+
+message GetNoteRequest {
+  string note_id = 1;
+}
+
+message GetNoteResponse {
+  string note_id = 1;
+  string title = 2;
+  string body = 3;
+}
